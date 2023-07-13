@@ -12,9 +12,14 @@ export const useForm = (initialForm = {}) => {
     });
   };
 
+  const onResetForm = () => {
+    setForm(initialForm);
+  };
+
   return {
     ...form,
     form,
     onInputChange,
+    onResetForm,
   };
 };
