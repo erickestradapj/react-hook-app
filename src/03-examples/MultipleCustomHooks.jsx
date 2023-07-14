@@ -1,10 +1,11 @@
-import { useCounter } from '../hooks/useCounter';
-import { useFetch } from '../hooks/useFetch';
+import { useCounter, useFetch } from '../hooks';
+import { LoadingQuote } from './LoadingQuote';
+import { Quote } from './Quote';
 
 export const MultipleCustomHooks = () => {
   const { counter, increment } = useCounter(1);
 
-  const { data, isLoading, hasError } = useFetch(
+  const { data, isLoading } = useFetch(
     `https://rickandmortyapi.com/api/character/${counter}`,
   );
 
@@ -14,12 +15,9 @@ export const MultipleCustomHooks = () => {
       <hr />
 
       {isLoading ? (
-        <div className='alert alert-info text-center'>Loading...</div>
+        <LoadingQuote />
       ) : (
-        <blockquote className='blockquote text-end'>
-          <p className='mb-1'>{data.name}</p>
-          <footer className='blockquote-footer'>{data.species}</footer>
-        </blockquote>
+        <Quote key={data.id} name={data.name} species={data.species} />
       )}
 
       <button
