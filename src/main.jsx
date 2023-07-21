@@ -1,10 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import './07-useReducer/intro-reducer.js';
 import './index.css';
-import { CallbackHook } from './06-memos/CallbackHook.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <CallbackHook />
-  </React.StrictMode>,
-);
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//     <CallbackHook />
+//   </React.StrictMode>,
+// );
