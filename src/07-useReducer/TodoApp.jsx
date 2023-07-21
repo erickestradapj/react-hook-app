@@ -1,4 +1,6 @@
 import { useReducer } from 'react';
+import { TodoAdd } from './TodoAdd';
+import { TodoList } from './TodoList';
 import { todoReducer } from './todoReducer';
 
 const initialState = [
@@ -17,6 +19,10 @@ const initialState = [
 export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialState);
 
+  const handleNewTodo = (todo) => {
+    console.log({ todo });
+  };
+
   return (
     <>
       <h1>
@@ -26,34 +32,14 @@ export const TodoApp = () => {
 
       <div className='row'>
         <div className='col-7'>
-          <ul className='list-group'>
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className='list-group-item d-flex justify-content-between'
-              >
-                <span className='align-self-center'>Item 1</span>
-                <button className='btn btn-danger'>Delete</button>
-              </li>
-            ))}
-          </ul>
+          <TodoList todos={todos} />
         </div>
 
         <div className='col-5'>
           <h4>Add TODO</h4>
           <hr />
 
-          <form>
-            <input
-              type='text'
-              placeholder='what to do?'
-              className='form-control'
-            />
-
-            <button type='submit' className='btn btn-outline-primary mt-2'>
-              Add
-            </button>
-          </form>
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
       </div>
     </>
