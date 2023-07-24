@@ -9,7 +9,7 @@ export const LoginPage = () => {
       <h1>LoginPage</h1>
       <hr />
 
-      <pre>{JSON.stringify(user, null, 3)}</pre>
+      <pre aria-label='pre'>{JSON.stringify(user, null, 3)}</pre>
 
       <button
         className='btn btn-primary'
@@ -20,6 +20,7 @@ export const LoginPage = () => {
             email: 'john.doe@email.com',
           })
         }
+        aria-label='button'
       >
         Set User
       </button>
